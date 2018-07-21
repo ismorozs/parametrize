@@ -1,0 +1,19 @@
+{
+  "name": "parametrize",
+  "version": "0.1.0",
+  "description": "Simple library allowing for adhoc polymorphism with javascript functions",
+  "main": "parametrize.js",
+  "scripts": {
+    "test": "mocha",
+    "uglify": "uglifyjs -c -m -o parametrize.min.js -- parametrize.js"
+  },
+  "keywords": [
+    "js-polymorphism"
+  ],
+  "author": "Igor Morozov",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "5.2.0",
+    "uglifyjs": "2.4.11"
+  }
+}
