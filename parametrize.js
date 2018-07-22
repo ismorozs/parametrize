@@ -1,6 +1,6 @@
 'use strict';
 
-(function (globalObj, isWindowGlobal) {
+(function (globalObj, isModuleGlobal) {
 
   var argsTree = {};
   var funcs = {};
@@ -10,10 +10,10 @@
     set: addFunction
   };
 
-  if (isWindowGlobal) {
-    globalObj.Func = Func;
-  } else {
+  if (isModuleGlobal) {
     globalObj.exports = Func;
+  } else {
+    globalObj.Func = Func;
   }
 
   function addFunction(name, params, func) {
@@ -102,4 +102,4 @@
     return Object.prototype.toString.call(obj) === '[object Object]';
   }
 
-})(typeof window !== 'undefined' ? window : module, typeof window !== 'undefined');
+})(typeof module !== 'undefined' ? module : window, typeof module !== 'undefined');
