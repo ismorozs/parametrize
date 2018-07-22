@@ -1,5 +1,5 @@
 # Parametrize
-Simple js library allowing for adhoc polymorphism with javascript functions
+Simple js library allowing for adhoc polymorphism with javascript functions.  
 Override functions with the same name using different parameter types, making it evaluate differently based on them (input parameters)
 
 # How to install
