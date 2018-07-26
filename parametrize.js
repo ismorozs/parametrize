@@ -20,7 +20,7 @@
     if (!funcs[name]) {
       var newFunc = setupNewFunction(name);
       setThroughPath(argsTree, [name, ''], function () {});
-      newFunc.parametrize = function (params, func) {
+      newFunc.parametrize = newFunc.overload = function (params, func) {
         return addFunction(name, params, func);
       };
       funcs[name] = newFunc;
