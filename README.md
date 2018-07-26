@@ -62,7 +62,7 @@ So we use the same function name, but invoke it with different parameter types, 
 This is what adhoc polymorphism is, and what this library is about.  
 
 Mapping each parameters list variant to a function can be cumbersome and simply redundant. Any function returned from ```Func.new``` can be assigned a fallback function, which will be invoked when no function is found for a given list of parameter types.
-To setup fallback function, you we this
+To setup fallback function, we do this
 ```js
 sum.parametrize(() => console.log("I don't know what to do"));
 ```
