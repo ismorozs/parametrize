@@ -8,7 +8,7 @@
     "uglify": "uglifyjs -c -m -o parametrize.min.js -- parametrize.js"
   },
   "keywords": [
-    "js-polymorphism"
+    "adhoc polymorphism"
   ],
   "author": "Igor Morozov",
   "license": "MIT",
