@@ -1,6 +1,6 @@
 {
   "name": "parametrize",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "Simple library allowing for adhoc polymorphism with javascript functions",
   "main": "parametrize.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "uglify": "uglifyjs -c -m -o parametrize.min.js -- parametrize.js"
   },
   "keywords": [
-    "adhoc polymorphism"
+    "adhoc polymorphism function overloading"
   ],
   "author": "Igor Morozov",
   "license": "MIT",
