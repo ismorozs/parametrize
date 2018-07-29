@@ -79,7 +79,7 @@ sum('Hello, World!', [1,2,3], { x:1, y:2, z:3 });
 ```
 
 ## Strict mode
-To make parametrized function throw errors when parameter types lists don't match with defined overridings on function call, you call ```Func.strict(true)```, alternatively to return it back to fallback mode, you call ```Func.strict(false)```
+To make parametrized function throw errors when parameter types lists don't match with defined overloads on function call, you call ```Func.strict(true)```, alternatively to return it back to fallback mode, you call ```Func.strict(false)```
 
 ```js
 Func.strict(true);
