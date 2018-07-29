@@ -3,7 +3,7 @@
 (function (globalObj, isModuleGlobal) {
 
   var noArguments = '\\';
-
+  var strict = false;
   var argsTree = {};
   var funcs = {};
   var Func = {
@@ -16,8 +16,6 @@
     }
   };
 
-  var strict = false;
-
   if (isModuleGlobal) {
     globalObj.exports = Func;
   } else {
@@ -25,10 +23,6 @@
   }
 
   function addFunction(name, params, func) {
-    switch (arguments.length) {
-
-    }
-
     if (!funcs[name]) {
       var newFunc = setupNewFunction(name);
       var initialFunction = (strict) ? errorFunction.bind(null, name) : function () {};
