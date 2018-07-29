@@ -1,6 +1,6 @@
 {
   "name": "parametrize",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Simple library allowing for adhoc polymorphism with javascript functions",
   "main": "parametrize.js",
   "scripts": {
@@ -8,9 +8,18 @@
     "uglify": "uglifyjs -c -m -o parametrize.min.js -- parametrize.js"
   },
   "keywords": [
-    "adhoc", "polymorphism",  "function", "overloading"
+    "adhoc",
+    "polymorphism",
+    "function",
+    "signature",
+    "checking",
+    "parameters",
+    "overloading"
   ],
   "author": "Igor Morozov",
+  "homepage": "https://github.com/ismorozs/parametrize",
+  "repository": "https://github.com/ismorozs/parametrize.git",
+  "bugs": "https://github.com/ismorozs/parametrize/issues",
   "license": "MIT",
   "devDependencies": {
     "mocha": "5.2.0",

@@ -2,13 +2,21 @@
 
 (function (globalObj, isModuleGlobal) {
 
+  var noArguments = '\\';
+
   var argsTree = {};
   var funcs = {};
   var Func = {
     new: addFunction,
     get: addFunction,
-    set: addFunction
+    set: addFunction,
+    strict: function (bool) {
+      strict = bool;
+      console.warn('parametrize strict mode is set to ' + strict);
+    }
   };
+
+  var strict = false;
 
   if (isModuleGlobal) {
     globalObj.exports = Func;
@@ -17,9 +25,14 @@
   }
 
   function addFunction(name, params, func) {
+    switch (arguments.length) {
+
+    }
+
     if (!funcs[name]) {
       var newFunc = setupNewFunction(name);
-      setThroughPath(argsTree, [name, ''], function () {});
+      const initialFunction = (strict) ? errorFunction.bind(null, name) : function () {};
+      setThroughPath(argsTree, [name, noArguments], initialFunction);
       newFunc.parametrize = newFunc.overload = function (params, func) {
         return addFunction(name, params, func);
       };
@@ -28,7 +41,7 @@
 
     if (!func) {
       if (params) {
-        setThroughPath(argsTree, [name, ''], params);
+        setThroughPath(argsTree, [name, noArguments], params);
       }
       return funcs[name];
     }
@@ -51,15 +64,23 @@
       return arg.constructor.name;
     });
 
-    if (!argsTypes.length) {
-      return argsTree[funcName][''];
-    }
-
     var func = void 0;
     try {
+
+      if (!argsTypes.length) {
+        return argsTree[funcName][noArguments];
+      }
+
       func = getThroughPath(argsTree, [funcName].concat(argsTypes));
+
     } catch (e) {
-      func = argsTree[funcName][''];
+      if (strict) {
+        throw TypeError (
+          "Calling '" + funcName + "' with argument types [" + argsTypes.join(', ') + "] doesn't match any defined signature."
+        );
+      }
+
+      func = argsTree[funcName][noArguments];
     }
     return func;
   }
@@ -96,6 +117,10 @@
     }
 
     return obj;
+  }
+
+  function errorFunction (name) {
+    throw TypeError ("Calling '" + name + "' with argument types [] doesn't match any defined signature.");
   }
 
   function isObject(obj) {
