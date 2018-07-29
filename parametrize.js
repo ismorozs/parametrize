@@ -31,7 +31,7 @@
 
     if (!funcs[name]) {
       var newFunc = setupNewFunction(name);
-      const initialFunction = (strict) ? errorFunction.bind(null, name) : function () {};
+      var initialFunction = (strict) ? errorFunction.bind(null, name) : function () {};
       setThroughPath(argsTree, [name, noArguments], initialFunction);
       newFunc.parametrize = newFunc.overload = function (params, func) {
         return addFunction(name, params, func);
